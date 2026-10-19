@@ -1,0 +1,137 @@
+
+---
+/**
+ * LOCALIZAÇÃO — ILUSTRAR
+ *
+ * Responsabilidades:
+ * - Apresentar o endereço da escola;
+ * - Exibir informações para visitantes;
+ * - Disponibilizar a rota pelo Google Maps;
+ * - Facilitar o contato pelo WhatsApp.
+ *
+ * Os dados são centralizados em site.ts.
+ */
+
+import SectionHeading from "../../ui/SectionHeading.astro";
+
+import {
+gerarLinkRota,
+gerarLinkWhatsApp,
+site,
+} from "../../../data/site";
+
+import "./Location.css";
+
+// Links externos
+const rotaUrl = gerarLinkRota();
+
+const contatoUrl = gerarLinkWhatsApp(
+  site.whatsapp.numero,
+  "Olá! Gostaria de agendar uma visita à ILUSTRAR."
+);
+---
+
+<section
+  id="localizacao"
+  class="section location"
+  aria-labelledby="localizacao-title"
+>
+  <div class="location__inner">
+
+    <!-- Informações da escola -->
+    <div class="location__content">
+
+      <SectionHeading
+        id="localizacao-title"
+        eyebrow="Onde estamos"
+        title="Venha conhecer a Ilustrar de perto."
+        align="left"
+      />
+
+      <!-- Endereço oficial -->
+      <address class="location__address">
+        <strong>{site.endereco.rua}</strong>
+
+        <span>{site.endereco.cidade}</span>
+
+        <small>
+          Referência: {site.endereco.referencia}
+        </small>
+      </address>
+
+      <!-- Orientações para visitantes -->
+      <div class="location__notes">
+
+        <div>
+          <strong>Atendimento</strong>
+          <p>
+            Consulte os horários disponíveis
+            pelo WhatsApp.
+          </p>
+        </div>
+
+        <div>
+          <strong>Primeira visita</strong>
+          <p>
+            Agende para a equipe preparar
+            a melhor experiência.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Ações disponíveis -->
+      <div class="location__actions">
+
+        <a
+          class="location__button"
+          href={rotaUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Abrir rota no Google Maps
+          <span aria-hidden="true">↗</span>
+        </a>
+
+        <a
+          class="location__contact"
+          href={contatoUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Falar com a escola
+          <span aria-hidden="true">↗</span>
+        </a>
+
+      </div>
+
+    </div>
+
+    <!--
+      Mapa decorativo inspirado na V2.
+      Não representa a geografia real.
+      A localização verdadeira é aberta
+      pelo botão do Google Maps.
+    -->
+    <div class="location__map" aria-hidden="true">
+
+      <!-- Ruas ilustrativas -->
+      <span class="location__road location__road--one"></span>
+      <span class="location__road location__road--two"></span>
+
+      <!-- Quadras decorativas -->
+      <span class="location__block location__block--one"></span>
+      <span class="location__block location__block--two"></span>
+      <span class="location__block location__block--three"></span>
+
+      <!-- Marcador da escola -->
+      <span class="location__pin"></span>
+
+      <strong class="location__map-label">
+        ILUSTRAR
+      </strong>
+
+    </div>
+
+  </div>
+</section>

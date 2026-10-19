@@ -1,0 +1,21 @@
+---
+import "./FaqItem.css";
+
+const {
+  question = "Pergunta",
+  answer = "Resposta",
+  layout = "",
+  color = "bgColor-1",
+} = Astro.props;
+---
+
+<details class={`faq-item ${layout} ${color}`}>
+  <summary class="faq-item__question">
+    <span>{question}</span>
+    <span class="faq-item__arrow">▼</span>
+  </summary>
+
+  <div class="faq-item__answer">
+    <p>{answer}</p>
+  </div>
+</details>

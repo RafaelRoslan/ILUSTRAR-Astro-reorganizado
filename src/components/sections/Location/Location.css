@@ -1,0 +1,323 @@
+
+/* ==========================================
+   ILUSTRAR — LOCALIZAÇÃO
+   Abordagem mobile-first
+   ========================================== */
+
+/* 1. Estrutura da seção */
+
+.section.location {
+  width: 100%;
+  padding: clamp(3rem, 6vw, 5rem) 1rem;
+
+  background: var(--background);
+}
+
+.location__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "content"
+    "map";
+
+  align-items: center;
+  gap: 2.5rem;
+
+  width: 100%;
+  max-width: 1060px;
+  margin-inline: auto;
+}
+
+/* 2. Conteúdo */
+
+.location__content {
+  grid-area: content;
+  min-width: 0;
+}
+
+/* Mantém o alinhamento dos títulos */
+.location .section-heading {
+  max-width: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+/* 3. Endereço */
+
+.location__address {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+
+  margin-bottom: 1.5rem;
+
+  font-family: "Rubik", sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  line-height: 1.6;
+
+  color: var(--text-color);
+}
+
+.location__address strong {
+  font-size: 1.05rem;
+}
+
+.location__address small {
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+  color: var(--primary-alter-dark-2);
+}
+
+/* 4. Informações complementares */
+
+.location__notes {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+
+  margin-bottom: 2rem;
+}
+
+.location__notes strong {
+  display: block;
+  margin-bottom: 0.35rem;
+
+  font-family: "Rubik", sans-serif;
+  font-size: 0.95rem;
+
+  color: var(--primary-color-2);
+}
+
+.location__notes p {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+/* 5. Botões */
+
+.location__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1rem;
+}
+
+.location__button,
+.location__contact {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+
+  min-height: 50px;
+  padding: 0.85rem 1.15rem;
+
+  border-radius: 10px;
+
+  font-family: "Rubik", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Botão principal */
+.location__button {
+  background: var(--primary-color-2);
+  color: var(--text-color-2);
+
+  box-shadow: 4px 5px 0 var(--primary-color-3);
+}
+
+.location__button:hover {
+  background: var(--primary-alter-dark-2);
+}
+
+/* Botão secundário */
+.location__contact {
+  border: 2px solid var(--primary-color-2);
+  color: var(--primary-color-2);
+}
+
+.location__contact:hover {
+  background: var(--primary-color-2);
+  color: var(--text-color-2);
+}
+
+/* Acessibilidade */
+.location__actions a:focus-visible {
+  outline: 3px solid var(--primary-alter-dark-2);
+  outline-offset: 4px;
+}
+
+/* ==========================================
+   6. MAPA ILUSTRATIVO
+   ========================================== */
+
+.location__map {
+  grid-area: map;
+  position: relative;
+  isolation: isolate;
+
+  width: 100%;
+  min-width: 0;
+  height: 290px;
+
+  overflow: hidden;
+
+  border: 3px solid var(--primary-alter-dark-2);
+  border-radius: 22px 8px;
+
+  background: var(--primary-alter-light-1);
+
+  box-shadow: 9px 10px 0 var(--primary-color-3);
+}
+
+/* Ruas decorativas */
+
+.location__road {
+  position: absolute;
+  z-index: 1;
+  display: block;
+
+  background: var(--background);
+}
+
+.location__road--one {
+  width: 70px;
+  height: 140%;
+
+  top: -20%;
+  left: 40%;
+
+  transform: rotate(22deg);
+}
+
+.location__road--two {
+  width: 140%;
+  height: 58px;
+
+  top: 46%;
+  left: -20%;
+
+  transform: rotate(-9deg);
+}
+
+/* Quadras ilustrativas */
+
+.location__block {
+  position: absolute;
+  z-index: 0;
+
+  background: #85b9b7;
+  border: 2px solid var(--primary-alter-dark-2);
+  border-radius: 8px;
+}
+
+.location__block--one {
+  width: 95px;
+  height: 70px;
+  top: 10%;
+  left: 8%;
+}
+
+.location__block--two {
+  width: 110px;
+  height: 85px;
+  right: 7%;
+  bottom: 9%;
+}
+
+.location__block--three {
+  width: 70px;
+  height: 65px;
+  left: 9%;
+  bottom: 8%;
+
+  background: var(--primary-alter-light-3);
+}
+
+/* 7. Marcador da escola */
+
+.location__pin {
+  position: absolute;
+  z-index: 2;
+
+  width: 62px;
+  height: 62px;
+
+  top: 43%;
+  left: 55%;
+
+  background: var(--secondary-color-1);
+  border: 4px solid var(--primary-alter-dark-2);
+  border-radius: 50% 50% 50% 5%;
+
+  transform: translate(-50%, -50%) rotate(-45deg);
+
+  box-shadow: 5px 5px 0 var(--primary-color-3);
+}
+
+.location__pin::after {
+  content: "";
+  position: absolute;
+  inset: 17px;
+
+  border-radius: 50%;
+  background: var(--background);
+  border: 2px solid var(--primary-alter-dark-2);
+}
+
+/* Identificação visual */
+
+.location__map-label {
+  position: absolute;
+  z-index: 3;
+
+  top: calc(43% + 49px);
+  left: 55%;
+
+  transform: translateX(-50%);
+
+  padding: 0.4rem 0.65rem;
+  border-radius: 5px;
+
+  background: var(--primary-alter-dark-2);
+  color: var(--text-color-2);
+
+  font-family: "SongerG", sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+}
+
+/* ==========================================
+   TELAS MAIORES
+   ========================================== */
+
+@media (min-width: 768px) {
+  .location__notes {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .location__actions {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
+
+@media (min-width: 900px) {
+  .location__inner {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+    grid-template-areas: "map content";
+    gap: clamp(2rem, 5vw, 5rem);
+  }
+
+  .location__map {
+    height: 420px;
+  }
+}

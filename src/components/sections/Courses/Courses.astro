@@ -1,0 +1,108 @@
+
+---
+/**
+ * SEÇÃO DE CURSOS — ILUSTRAR
+ *
+ * Apresenta os três níveis de aprendizagem.
+ *
+ * Cada nível possui um carrossel independente.
+ * Os dados vêm de src/data/courses.ts.
+ *
+ * A navegação infinita é implementada em
+ * src/scripts/coursesCarousel.js.
+ */
+
+import CourseCard from "../../ui/CourseCard.astro";
+import SectionHeading from "../../ui/SectionHeading.astro";
+
+import { gruposCursos } from "../../../data/courses";
+
+import "./Courses.css";
+---
+
+<section
+  id="cursos"
+  class="section cursos"
+  aria-labelledby="cursos-title"
+>
+  <!-- Título geral da seção -->
+  <SectionHeading
+    id="cursos-title"
+    eyebrow="Cursos"
+    title="Uma trilha criativa para cada fase."
+    description="Do primeiro rabisco ao projeto autoral, o aluno encontra um próximo passo claro para continuar evoluindo."
+  />
+
+  <div class="cursos__grid">
+    {
+      gruposCursos.map((grupo, index) => (
+        <section
+          class="cursos__grupo"
+          aria-labelledby={`nivel-${grupo.id}`}
+        >
+
+          <!-- Apresentação do nível -->
+          <div class="cursos__grupo-cabecalho">
+
+            <span
+              class="cursos__indice"
+              aria-hidden="true"
+            >
+              {String(index + 1).padStart(2, "0")}
+            </span>
+
+            <div class="cursos__grupo-texto">
+              <p class="cursos__nivel">
+                Nível {grupo.nivel}
+              </p>
+
+              <h3 id={`nivel-${grupo.id}`}>
+                {grupo.titulo}
+              </h3>
+
+              <p class="cursos__resumo">
+                {grupo.resumo}
+              </p>
+            </div>
+
+          </div>
+
+          <!-- Carrossel horizontal -->
+          <ul
+            class="cursos__linha"
+            data-course-carousel
+            tabindex="0"
+            aria-labelledby={`nivel-${grupo.id}`}
+            aria-describedby={`dica-${grupo.id}`}
+          >
+            {
+              grupo.cursos.map((curso) => (
+                <li class="cursos__item">
+                  <CourseCard
+                    nome={curso.nome}
+                    descricao={curso.descricao}
+                    imagem={curso.imagem}
+                    alt={curso.alt}
+                    bgCurso={grupo.cor}
+                  />
+                </li>
+              ))
+            }
+          </ul>
+
+          <!-- Indicação visual de navegação -->
+          <p
+            id={`dica-${grupo.id}`}
+            class="cursos__dica"
+          >
+            Deslize ou arraste para explorar os cursos
+          </p>
+
+        </section>
+      ))
+    }
+  </div>
+</section>
+
+<!-- Script processado e otimizado pelo Astro -->
+<script src="../../../scripts/coursesCarousel.js"></script>

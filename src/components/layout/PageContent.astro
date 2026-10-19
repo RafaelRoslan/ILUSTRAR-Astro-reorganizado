@@ -1,0 +1,37 @@
+---
+import "../../styles/page.css";
+
+import AgendaSection from "../sections/Agenda/Agenda.astro";
+import CursosSection from "../sections/Courses/Courses.astro";
+import DifferentialsSection from "../sections/Differentials/Differentials.astro";
+import FAQSection from "../sections/FAQ/FAQ.astro";
+import Cover from "../sections/Hero/Hero.astro";
+import InclusionSection from "../sections/Inclusion/Inclusion.astro";
+import LocationSection from "../sections/Location/Location.astro";
+import MaterialSection from "../sections/Materials/Materials.astro";
+import PlanosSection from "../sections/Plans/Plans.astro";
+import VideoSection from "../sections/Video/Video.astro";
+import FloatingWhatsApp from "../ui/FloatingWhatsApp.astro";
+import Footer from "./Footer.astro";
+import Header from "./Header.astro";
+---
+
+<div id="inicio" class="page-container">
+  <Header />
+
+  <main class="main-content">
+    <Cover />
+    <DifferentialsSection />
+    <VideoSection />
+    <!-- Benefits está disponível, mas permanece desativada até a etapa de conteúdo. -->
+    <CursosSection />
+    <MaterialSection />
+    <InclusionSection />
+    <PlanosSection />
+    <LocationSection />
+    <FAQSection />
+    <AgendaSection />
+  </main>
+  <Footer/>
+  <FloatingWhatsApp />
+</div>

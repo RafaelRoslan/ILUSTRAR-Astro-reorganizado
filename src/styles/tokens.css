@@ -1,0 +1,31 @@
+:root {
+  /* cores primárias */
+  --primary-color-1: #00b0b9;
+  --primary-color-2: #8155c7; /*#753bbd;*/
+  --primary-color-3: #f3d03e;
+
+  /* cores secundárias */
+  --secondary-color-1: #ff3eb5;
+  --secondary-color-2: #ff8f1c;
+
+  /* cores primárias alternativas */
+  --primary-alter-dark-1: #00747a;
+  --primary-alter-dark-2: #3c1053;
+  --primary-alter-dark-3: #b32d78;
+
+  --primary-alter-light-1: #b1e4e3;
+  --primary-alter-light-2: #9678d3;
+  --primary-alter-light-3: #ff73c2;
+
+  /* cores secundárias alternativas */
+  --secondary-alter-dark-1: #c16c18;
+  --secondary-alter-dark-2: #ad8b0d;
+
+  --secondary-alter-light-1: #ff8f1c;
+  --secondary-alter-light-2: #ffa32b;
+
+  /* cores utilitárias */
+  --background: #ffffff;
+  --text-color: #333333;
+  --text-color-2: #ffffff;
+}

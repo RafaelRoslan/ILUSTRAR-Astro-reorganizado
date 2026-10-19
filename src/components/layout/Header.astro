@@ -1,0 +1,109 @@
+
+---
+/**
+ * CABEÇALHO PRINCIPAL — ILUSTRAR
+ *
+ * Responsabilidades:
+ * - Exibir o logotipo da escola;
+ * - Gerar links de navegação;
+ * - Exibir o botão de agendamento;
+ * - Integrar o menu mobile.
+ *
+ * Os links e contatos são configurados em site.ts.
+ */
+
+import { Image } from "astro:assets";
+import logo from "../../assets/images/logo_ilustrar.png";
+
+import {
+gerarLinkWhatsApp,
+menuItems,
+} from "../../data/site";
+
+import "./Header.css";
+
+const whatsappUrl = gerarLinkWhatsApp();
+---
+
+<header class="site-header" data-menu-open="false">
+  <div class="site-header__inner">
+
+    <!-- LOGOTIPO -->
+    <a
+      class="site-header__brand"
+      href="#inicio"
+      aria-label="ILUSTRAR — voltar ao início"
+    >
+      <Image
+        class="site-header__image"
+        src={logo}
+        alt=""
+        width={440}
+        format="webp"
+        loading="eager"
+      />
+    </a>
+
+    <!-- BOTÃO DO MENU MOBILE -->
+    <button
+      class="site-header__toggle"
+      type="button"
+      aria-label="Abrir menu"
+      aria-expanded="false"
+      aria-controls="site-header-nav"
+    >
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+      >
+        <!-- Ícone de menu fechado -->
+        <path
+          class="site-header__icon-bars"
+          d="M4 7h16M4 12h16M4 17h16"
+        />
+
+        <!-- Ícone de fechar -->
+        <path
+          class="site-header__icon-close"
+          d="M6 6l12 12M18 6L6 18"
+        />
+      </svg>
+    </button>
+
+    <!-- NAVEGAÇÃO PRINCIPAL -->
+    <nav
+      id="site-header-nav"
+      class="site-header__nav"
+      aria-label="Navegação principal"
+    >
+      {
+        menuItems.map((item) => (
+          <a
+            class="site-header__link"
+            href={item.href}
+          >
+            {item.texto}
+          </a>
+        ))
+      }
+
+      <!-- BOTÃO DE AGENDAMENTO -->
+      <a
+        class="site-header__cta"
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Agendar aula
+      </a>
+    </nav>
+
+  </div>
+</header>
+
+<!-- Interatividade exclusiva do cabeçalho -->
+<script src="../../scripts/headerMenu.js"></script>

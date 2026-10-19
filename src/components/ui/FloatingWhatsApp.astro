@@ -1,0 +1,46 @@
+
+---
+/**
+ * BOTÃO FLUTUANTE — WHATSAPP
+ *
+ * Visível durante a navegação.
+ * O número é obtido de src/data/site.ts.
+ */
+
+import { gerarLinkWhatsApp } from "../../data/site";
+import "./FloatingWhatsApp.css";
+
+const whatsappUrl = gerarLinkWhatsApp();
+---
+
+<a
+  class="floating-whatsapp"
+  href={whatsappUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Conversar com a ILUSTRAR pelo WhatsApp (abre em nova aba)"
+  title="Fale conosco pelo WhatsApp"
+>
+  <svg
+    aria-hidden="true"
+    viewBox="0 0 24 24"
+    width="30"
+    height="30"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.8"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <!-- Balão de conversa -->
+    <path
+      d="M3 21l1.65-4.8a9 9 0 1 1 3.15 3.15L3 21"
+    />
+
+    <!-- Telefone -->
+    <path
+      d="M9 9v1a5 5 0 0 0 5 5h1"
+    />
+    <path d="M9 9l1-1M15 15l1-1" />
+  </svg>
+</a>

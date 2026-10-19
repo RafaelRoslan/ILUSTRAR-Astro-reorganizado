@@ -1,0 +1,62 @@
+
+---
+/**
+ * CARD DE CURSO — ILUSTRAR
+ *
+ * Componente responsável apenas por
+ * apresentar um curso.
+ *
+ * A largura do card é definida pelo
+ * carrossel em Courses.css.
+ */
+
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+import "./CourseCard.css";
+
+interface Props {
+  nome: string;
+  descricao: string;
+  imagem: ImageMetadata;
+  alt?: string;
+  bgCurso: string;
+}
+
+const {
+  nome,
+  descricao,
+  imagem,
+  alt = "",
+  bgCurso,
+} = Astro.props;
+---
+
+<article class:list={["card-curso", bgCurso]}>
+
+  <!-- Imagem principal do curso -->
+  <div class="card-curso__media">
+    <Image
+      class="card-curso__imagem"
+      src={imagem}
+      alt={alt}
+      width={250}
+      format="webp"
+      quality={82}
+      loading="lazy"
+      draggable="false"
+    />
+  </div>
+
+  <!-- Informações do curso -->
+  <div class="card-curso__conteudo">
+    <h4 class="card-curso__titulo">
+      {nome}
+    </h4>
+
+    <p class="card-curso__descricao">
+      {descricao}
+    </p>
+  </div>
+
+</article>

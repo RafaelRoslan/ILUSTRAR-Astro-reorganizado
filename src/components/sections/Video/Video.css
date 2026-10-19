@@ -1,0 +1,237 @@
+.video {
+  padding-top: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-color: var(--primary-color-2);
+}
+
+.video__area {
+  width: min(100%, 900px);
+  padding: 1rem;
+}
+
+.video__container {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 1rem;
+  background: #000;
+}
+
+.video__container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* =========================
+   BLOCO DE DESTAQUES
+========================= */
+
+.video__highlights {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* =========================
+   LISTA
+========================= */
+
+.video__text-card {
+  width: min(100%, 900px);
+  padding: 1.5rem 1rem 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video__text-card ul {
+  width: fit-content;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.video__text-card li {
+  margin: 0.7rem 0;
+
+  display: flex;
+  align-items: baseline;
+
+  font-family: "SongerG", sans-serif;
+  font-size: clamp(1.3rem, 4vw, 1.45rem);
+  color: var(--text-color-2);
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.video__text-card li::before {
+  content: "-";
+  flex: 0 0 1rem;
+  text-align: left;
+}
+
+/* =========================
+   CARD / FAIXA DE INCLUSÃO
+========================= */
+
+.video__inclusao-card {
+  position: relative;
+
+  width: 100%;
+  min-height: 150px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  overflow: hidden;
+  background-color: #ffffff;
+}
+
+.video__inclusao-wave {
+  position: absolute;
+  top: -1px;
+  left: -1%;
+  z-index: 1;
+
+  width: 102%;
+  height: 105px;
+
+  line-height: 0;
+  pointer-events: none;
+}
+
+.video__inclusao-wave svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-color-2);
+}
+
+.video__inclusao-content {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  min-height: 78px;
+  padding: 4.1rem 0.7rem 1rem;
+  margin-top: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  background-color: transparent;
+}
+
+.video__ribbon {
+  width: 60px;
+  flex-shrink: 0;
+}
+
+.video__ribbon img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.video__inclusao-content p {
+  margin: 0;
+
+  font-family: "SongerG", sans-serif;
+  font-size: clamp(1.3rem, 4.6vw, 1.48rem);
+  color: var(--primary-color-2);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+/* =========================
+   ONDA FINAL DA SEÇÃO
+========================= */
+
+.video__section-wave {
+  display: none;
+}
+
+/* =========================
+   DESKTOP
+========================= */
+
+@media (min-width: 768px) {
+  .video__highlights {
+    width: min(100%, 900px);
+    padding: 0 1rem 1rem;
+
+    display: grid;
+    grid-template-columns: 1.3fr 0.9fr;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .video__text-card {
+    width: 100%;
+    min-height: 150px;
+    padding: 1.5rem;
+  }
+
+  .video__inclusao-card {
+    min-height: 130px;
+    border-radius: 1rem;
+    background-color: #ffffff;
+  }
+
+  /* No desktop, a onda sai de dentro do card */
+  .video__inclusao-wave--card {
+    display: none;
+  }
+
+  .video__inclusao-content {
+    height: 100%;
+    min-height: 130px;
+    padding: 1rem;
+
+    flex-direction: row;
+    gap: 0.8rem;
+
+    background-color: transparent;
+    margin-top: 0px;
+  }
+
+  .video__ribbon {
+    width: 64px;
+  }
+
+  .video__inclusao-content p {
+    font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+    white-space: normal;
+  }
+
+  .video__section-wave {
+    display: block;
+
+    width: 100%;
+    height: 105px;
+
+    line-height: 0;
+    background-color: var(--primary-color-2);
+    pointer-events: none;
+  }
+
+  .video__section-wave svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}

@@ -1,0 +1,157 @@
+
+/* ==========================================
+   ILUSTRAR — CARD DE CURSO
+
+   O card preenche o espaço disponibilizado
+   pelo carrossel, sem largura fixa.
+   ========================================== */
+
+/* Cores originais dos níveis */
+.bg-ini {
+  background: var(--primary-color-2);
+}
+
+.bg-ite {
+  background: var(--primary-color-1); 
+}
+
+.bg-ava {
+  background: var(--secondary-color-2);
+}
+
+/* Estrutura principal */
+.card-curso {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  width: 100%;
+  height: 100%;
+  min-height: clamp(420px, 60svh, 510px);
+  padding: 0.9rem;
+
+  border-radius: 18px;
+  color: var(--text-color-2);
+
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Área reservada à ilustração */
+.card-curso__media {
+  display: grid;
+  place-items: center;
+
+  width: 100%;
+  aspect-ratio: 5 / 6;
+  height: auto;
+  min-height: 0;
+  flex-shrink: 0;
+
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.28);
+
+  overflow: hidden;
+}
+
+/* Imagem do curso */
+.card-curso__imagem {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Textos */
+.card-curso__conteudo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card-curso__titulo {
+  margin: 0;
+  padding: 0;
+
+  font-family: "SongerG", sans-serif;
+  font-size: clamp(1.5rem, 5vw, 1.95rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  text-align: left;
+  text-transform: uppercase;
+
+  overflow-wrap: break-word;
+}
+
+.card-curso__descricao {
+  margin: 0;
+
+  font-family: "Rubik", sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  text-align: left;
+
+  overflow-wrap: break-word;
+}
+
+/* Evita seleção acidental durante o arrasto */
+.card-curso,
+.card-curso * {
+  -webkit-user-drag: none;
+}
+
+/* Ajuste para telas muito pequenas */
+@media (max-width: 359px) {
+  .card-curso {
+    padding: 0.7rem;
+  }
+
+  .card-curso__titulo {
+    font-size: 1.45rem;
+  }
+}
+
+/* No desktop, os cards mantêm altura
+   equilibrada independentemente do monitor. */
+@media (min-width: 1024px) {
+  .card-curso {
+    min-height: 450px;
+  }
+}
+
+/* ==========================================
+   MOBILE — DESTAQUE PARA A ILUSTRAÇÃO
+   ========================================== */
+
+@media (max-width: 767px) {
+
+  /* Permite ao card ajustar sua altura
+     conforme a imagem e a descrição. */
+  .card-curso {
+    min-height: 0;
+    height: 100%;
+  }
+
+  /* Área vertical, maior que a anterior */
+  .card-curso__media {
+    height: auto;
+    min-height: 0;
+    flex: 0 0 auto;
+    padding: 0.25rem;
+  }
+
+  /* Amplia a ilustração para preencher
+     a área vertical, sem distorcer. */
+  .card-curso__imagem {
+    object-fit: cover;
+    object-position: center top;
+  }
+
+  /* Mantém o texto em sua altura natural */
+  .card-curso__conteudo {
+    flex: 0 0 auto;
+  }
+}

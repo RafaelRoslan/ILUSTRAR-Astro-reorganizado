@@ -1,0 +1,121 @@
+@import "./tokens.css";
+
+@font-face {
+  font-family: "Brownist";
+  src: url("../assets/fonts/Brownist.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SongerG";
+  src: url("../assets/fonts/SONGER_G_Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("../assets/fonts/Rubik-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 100%;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 100%;
+  min-height: 100%;
+  color: var(--text-color);
+  background-image: url("../assets/images/fundo.png");
+  background-repeat: repeat;
+}
+
+img,
+svg {
+  display: block;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2 {
+  margin: 0;
+  padding: 0 0.1rem 0.7rem 0;
+  font-family: "Brownist";
+  text-align: center;
+}
+
+h1 {
+  font-size: clamp(2.25rem, 10vw, 4rem);
+  color: var(--text-color-2);
+}
+
+h2 {
+  font-size: clamp(2.5rem, 10vw, 4rem);
+  color: var(--primary-color-2);
+}
+
+h3,
+h4 {
+  margin: 0;
+  padding: 0;
+  font-family: "SongerG";
+  text-align: center;
+  letter-spacing: 0.1cap;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  font-family: "Rubik";
+}
+
+a {
+  color: inherit;
+}
+
+ul {
+  margin: 0;
+  padding-left: 0;
+}
+
+.section {
+  margin: 0;
+  padding-top: 2rem;
+}
+
+/* Reserva espaço para o cabeçalho ao navegar
+   para os IDs das seções. */
+html {
+  scroll-padding-top: 6rem;
+}
+
+/* Rolagem suave, respeitando acessibilidade */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header {
+    transition: none;
+  }
+}

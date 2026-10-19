@@ -1,0 +1,73 @@
+---
+import FaqItem from "../../ui/FaqItem.astro";
+import SectionHeading from "../../ui/SectionHeading.astro";
+import "./FAQ.css";
+
+
+const perguntas = [
+  {
+    question: "Preciso ter experiência para começar o curso?",
+    answer:
+      "Não! Nossos cursos são voltados tanto para iniciantes quanto para quem já tem experiência e quer se aperfeiçoar.",
+  },
+  {
+    question: "A partir de qual idade a criança pode começar?",
+    answer:
+      "As turmas são organizadas conforme a idade e o nível do aluno. Entre em contato para verificarmos a melhor opção.",
+  },
+  {
+    question: "As aulas são presenciais?",
+    answer:
+      "Sim, as aulas acontecem presencialmente na escola Ilustrar, em Ibiúna/SP.",
+  },
+  {
+    question: "Preciso levar material?",
+    answer:
+      "A orientação sobre materiais pode variar conforme o curso escolhido. A escola informa tudo antes do início das aulas.",
+  },
+  {
+    question: "Como faço para agendar uma aula?",
+    answer:
+      "Você pode agendar diretamente pelo WhatsApp da escola clicando no botão de contato do site.",
+  },
+];
+---
+
+<section class="section contato-faq">
+
+  <div
+    id="faq"
+    class="contato-faq__faq"
+    aria-labelledby="faq-title"
+  >
+
+    <SectionHeading
+      id="faq-title"
+      eyebrow="Dúvidas frequentes"
+      title="Antes de começar, talvez você queira saber."
+      description="Ainda ficou com alguma dúvida? Nossa equipe pode ajudar pelo WhatsApp."
+    />
+
+    <!-- Perguntas mantidas do FAQ original -->
+    <div class="contato-faq__faq-list">
+      {
+        perguntas.map((item, index) => (
+          <FaqItem
+            question={item.question}
+            answer={item.answer}
+            layout={
+              index === 0
+                ? "top-item"
+                : index === perguntas.length - 1
+                  ? "bottom-item"
+                  : ""
+            }
+            color={index % 2 === 0 ? "bgColor-1" : "bgColor-2"}
+          />
+        ))
+      }
+    </div>
+
+  </div>
+
+</section>

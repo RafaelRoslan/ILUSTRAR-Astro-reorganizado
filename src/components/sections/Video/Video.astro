@@ -1,0 +1,88 @@
+---
+import inclusao from "../../../assets/images/ribbon_autism.png";
+import SectionHeading from "../../ui/SectionHeading.astro";
+import "./Video.css";
+---
+
+<section id="escola" class="section video" aria-labelledby="video-title">
+  <SectionHeading
+    id="video-title"
+    eyebrow="Nossa escola"
+    title="Aprender arte também é aprender sobre si."
+    description="Na Ilustrar, cada aluno encontra espaço para experimentar, evoluir no próprio ritmo e transformar curiosidade em habilidade."
+    tone="light"
+  />
+
+  <div class="video__area">
+    <div class="video__container">
+      <iframe
+        src="https://www.youtube.com/embed/iTPW5OEHLKY"
+        title="Vídeo de apresentação da escola Ilustrar"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      >
+      </iframe>
+    </div>
+  </div>
+
+  <div class="video__highlights">
+    <div class="video__text-card">
+      <ul>
+        <li>Metodologia exclusiva</li>
+        <li>Professores qualificados</li>
+        <li>Atendimento humanizado</li>
+      </ul>
+    </div>
+
+    <div class="video__inclusao-card">
+      <!-- Onda usada apenas no mobile -->
+      <div class="video__inclusao-wave video__inclusao-wave--card" aria-hidden="true">
+        <svg
+          viewBox="0 0 1440 170"
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M-20,105 C180,150 320,132 500,78 C700,18 870,36 1050,92 C1225,145 1340,130 1460,82 L1460,170 L-20,170 Z"
+            fill="var(--primary-alter-light-2)"
+          />
+
+          <path
+            d="M-20,118 C180,154 330,140 500,92 C690,38 840,48 1030,102 C1210,150 1330,138 1460,98 L1460,170 L-20,170 Z"
+            fill="#ffffff"
+          />
+        </svg>
+      </div>
+
+      <div class="video__inclusao-content">
+        <div class="video__ribbon">
+          <img
+            src={inclusao.src}
+            alt="Laço colorido representando inclusão e acolhimento"
+          />
+        </div>
+
+        <p>Inclusão e acolhimento</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Onda usada no desktop para separar vídeo e benefícios -->
+  <div class="video__section-wave" aria-hidden="true">
+    <svg
+      viewBox="0 0 1440 170"
+      preserveAspectRatio="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M-20,80 C190,132 320,118 500,70 C710,14 880,32 1060,88 C1240,142 1360,120 1460,76 L1460,170 L-20,170 Z"
+        fill="var(--primary-alter-light-2)"
+      />
+
+      <path
+        d="M-20,100 C180,148 330,134 500,88 C700,34 850,44 1040,98 C1220,148 1340,132 1460,92 L1460,170 L-20,170 Z"
+        fill="#ffffff"
+      />
+    </svg>
+  </div>
+</section>

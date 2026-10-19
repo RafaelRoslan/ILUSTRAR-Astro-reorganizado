@@ -1,0 +1,54 @@
+---
+import concentracao from "../../../assets/images/concentracao.png";
+import coordenacao from "../../../assets/images/coordenacao.png";
+import criatividade from "../../../assets/images/criatividade.png";
+import SectionHeading from "../../ui/SectionHeading.astro";
+import "./Benefits.css";
+
+const beneficios = [
+  {
+    titulo: "Criatividade",
+    texto: "Libera a imaginação e incentiva a inovação.",
+    imagem: criatividade,
+    alt: "Ícone representando criatividade",
+  },
+  {
+    titulo: "Concentração",
+    texto: "Ajuda a focar e manter a atenção em uma tarefa.",
+    imagem: concentracao,
+    alt: "Ícone representando concentração",
+  },
+  {
+    titulo: "Coordenação motora",
+    texto: "Desenvolve habilidades motoras finas e controle muscular.",
+    imagem: coordenacao,
+    alt: "Ícone representando coordenação motora",
+  },
+];
+---
+
+
+<section class="section beneficios" aria-labelledby="beneficios-title">
+    
+  <SectionHeading
+    id="beneficios-title"
+    eyebrow="Muito além do desenho"
+    title="Habilidades que acompanham o aluno para a vida."
+    description="A prática artística exercita corpo, mente e imaginação ao mesmo tempo."
+  />
+
+  <ul class="beneficios__grid">
+    {beneficios.map((beneficio) => (
+      <li class="beneficios__card">
+        <div class="beneficios__image">
+          <img src={beneficio.imagem.src} alt={beneficio.alt} />
+        </div>
+
+        <div class="beneficios__content">
+          <h3>{beneficio.titulo}</h3>
+          <p>{beneficio.texto}</p>
+        </div>
+      </li>
+    ))}
+  </ul>
+</section>

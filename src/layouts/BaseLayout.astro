@@ -1,0 +1,38 @@
+---
+import "../styles/global.css";
+// Informações gerais da página inicial.
+// Futuramente poderão vir de src/data/site.ts.
+
+const titulo = "ILUSTRAR | Escola de Desenho em Ibiúna";
+
+const descricao =
+  "Conheça a ILUSTRAR, escola de desenho em Ibiúna (SP). Explore cursos para diferentes níveis e entre em contato para agendar uma aula.";
+---
+<!doctype html>
+<html lang="pt-BR">
+	<head>
+		<!-- Configurações fundamentais -->
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1"
+		/>
+		<!-- Informações para buscadores -->
+		<title>{titulo}</title>
+		<meta name="description" content={descricao} />
+
+		<!-- Compartilhamento em redes sociais -->
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="pt_BR" />
+		<meta property="og:title" content={titulo} />
+		<meta property="og:description" content={descricao} />
+
+		<!-- Identidade -->
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+		<meta name="generator" content={Astro.generator} />
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>

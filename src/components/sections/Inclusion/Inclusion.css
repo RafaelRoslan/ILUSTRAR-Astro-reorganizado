@@ -1,0 +1,193 @@
+
+/* ==========================================
+   ILUSTRAR — INCLUSÃO E ACOLHIMENTO
+
+   Mobile: texto acima da imagem
+   Desktop: imagem à esquerda, texto à direita
+   ========================================== */
+
+/* 1. Fundo e espaçamento da seção */
+
+.section.inclusion {
+  width: 100%;
+  padding: clamp(3rem, 7vw, 5rem) 1rem;
+
+  background: var(--primary-alter-dark-1);
+  color: var(--text-color-2);
+  padding-bottom: 0;
+}
+
+/* 2. Estrutura principal */
+
+.inclusion__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  gap: 2rem;
+
+  width: 100%;
+  max-width: 1060px;
+  margin-inline: auto;
+}
+
+/* 3. Conteúdo textual */
+
+.inclusion__content {
+  min-width: 0;
+}
+
+/* Adapta SectionHeading à seção.
+   Mantemos sua tipografia original. */
+
+.inclusion .section-heading {
+  max-width: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+}
+
+/* Identificador amarelo sobre fundo escuro */
+
+.inclusion .section-heading__eyebrow {
+  color: var(--primary-color-3);
+}
+
+/* 4. Botão para conversar com a equipe */
+
+.inclusion__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0.9rem 1.2rem;
+
+  border-radius: 10px;
+
+  background: var(--primary-color-3);
+  color: var(--primary-alter-dark-2);
+
+  font-family: "Rubik", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+
+  transition: background-color 0.2s ease;
+}
+
+.inclusion__cta:hover {
+  background: var(--secondary-alter-light-2);
+}
+
+.inclusion__cta:focus-visible {
+  outline: 3px solid var(--text-color-2);
+  outline-offset: 4px;
+}
+
+/* 5. Área visual do laço */
+
+.inclusion__visual {
+  display: grid;
+  place-items: center;
+
+  width: min(70vw, 250px);
+  aspect-ratio: 1;
+
+  margin-inline: auto;
+  padding: 1rem;
+
+  border: 2px dashed rgba(255, 255, 255, 0.45);
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.inclusion__image {
+  display: block;
+  width: 80%;
+  height: auto;
+  object-fit: contain;
+}
+
+
+/* ==========================================
+   ONDA DECORATIVA — FINAL DA INCLUSÃO
+   ========================================== */
+
+.inclusion__wave {
+  width: calc(100% + 2rem);
+  height: clamp(60px, 9vw, 105px);
+
+  /* Compensa o padding lateral da seção */
+  margin: 2.5rem -1rem 0;
+
+  line-height: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.inclusion__wave svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* 6. Alinhamento mobile */
+
+@media (max-width: 899px) {
+  .inclusion .section-heading {
+    text-align: center;
+  }
+
+  .inclusion .section-heading__title,
+  .inclusion .section-heading__description {
+    text-align: center;
+  }
+
+  .inclusion .section-heading__description {
+    margin-inline: auto;
+  }
+}
+
+/* ==========================================
+   DESKTOP — DUAS COLUNAS
+   ========================================== */
+
+@media (min-width: 900px) {
+
+  .inclusion__inner {
+    grid-template-columns:
+      minmax(0, 0.8fr)
+      minmax(0, 1.2fr);
+
+    grid-template-areas: "visual content";
+    gap: clamp(2rem, 5vw, 5rem);
+  }
+
+  .inclusion__visual {
+    grid-area: visual;
+
+    width: min(100%, 370px);
+  }
+
+  .inclusion__content {
+    grid-area: content;
+  }
+
+  .inclusion__cta {
+    margin-inline: 0;
+  }
+}
+
+/* 7. Acessibilidade: movimento reduzido */
+
+@media (prefers-reduced-motion: reduce) {
+  .inclusion__cta {
+    transition: none;
+  }
+}
+

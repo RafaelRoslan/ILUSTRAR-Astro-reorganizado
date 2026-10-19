@@ -1,0 +1,201 @@
+
+/* ==========================================
+   ILUSTRAR — SEÇÃO DE CURSOS
+
+   Três carrosséis independentes.
+   Layout mobile-first com CSS Scroll Snap.
+   ========================================== */
+
+.cursos {
+  width: 100%;
+  background: var(--background);
+  overflow: hidden;
+}
+
+/* Organização dos três níveis */
+.cursos__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  width: 100%;
+  padding-block: 1rem 3rem;
+}
+
+/* Cada nível */
+.cursos__grupo {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Cabeçalho do nível */
+.cursos__grupo-cabecalho {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+
+  padding: 0 1rem;
+  margin: 0 auto 1rem;
+  max-width: 1000px;
+}
+
+.cursos__indice {
+  font-family: "Brownist", sans-serif;
+  font-size: 2.5rem;
+  line-height: 1;
+  color: var(--primary-color-2);
+}
+
+.cursos__grupo-texto {
+  flex: 1;
+  min-width: 0;
+}
+
+.cursos__nivel {
+  margin-bottom: 0.2rem;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--primary-alter-dark-2);
+}
+
+.cursos__grupo-texto h3 {
+  margin: 0 0 0.35rem;
+  font-family: "Brownist", sans-serif;
+  font-size: clamp(1.6rem, 5vw, 2.7rem);
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--primary-color-2);
+}
+
+.cursos__resumo {
+  max-width: 540px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* ==========================================
+   CARROSSEL
+   ========================================== */
+
+.cursos__linha {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+
+  width: 100%;
+  margin: 0;
+  padding: 1rem;
+
+  max-width: 1000px;
+  margin-inline: auto;
+  box-sizing: border-box;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  /* Encaixa cada card ao final do movimento */
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 1rem;
+
+  /* Não arrasta a página lateralmente */
+  overscroll-behavior-x: contain;
+
+  /* Rolagem natural no celular */
+  -webkit-overflow-scrolling: touch;
+
+  /* Oculta a barra, preservando a rolagem */
+  scrollbar-width: none;
+
+  cursor: grab;
+}
+
+.cursos__linha::-webkit-scrollbar {
+  display: none;
+}
+
+/* Cada item controla a largura do card */
+.cursos__item {
+  flex: 0 0 min(78vw, 310px);
+
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+  scroll-snap-align: start;
+}
+
+/* Desktop: arrastar segurando o mouse */
+.cursos__linha.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  user-select: none;
+}
+
+/* Foco visível para navegação por teclado */
+.cursos__linha:focus-visible {
+  outline: 3px solid var(--primary-color-2);
+  outline-offset: -3px;
+}
+
+/* Mensagem que indica a rolagem */
+.cursos__dica {
+  padding: 0.4rem 1rem;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--primary-alter-dark-2);
+}
+
+/* ==========================================
+   TELAS MAIORES
+   ========================================== */
+
+@media (min-width: 768px) {
+  .cursos__grid {
+    gap: 4rem;
+  }
+
+  .cursos__grupo-cabecalho {
+    gap: 1.5rem;
+  }
+
+  .cursos__indice {
+    font-size: 3.5rem;
+  }
+
+  .cursos__nivel,
+  .cursos__resumo {
+    font-size: 1rem;
+  }
+
+  .cursos__linha {
+    gap: 1.25rem;
+    padding-block: 1.5rem;
+  }
+
+  .cursos__dica {
+    font-size: 0.85rem;
+  }
+}
+
+/* ==========================================
+   TABLET — DOIS CARDS COMPLETOS
+   ========================================== */
+
+@media (min-width: 768px) {
+  .cursos__item {
+    flex-basis: calc((100% - 1.25rem) / 2);
+  }
+}
+
+/* ==========================================
+   DESKTOP — TRÊS CARDS COMPLETOS
+   ========================================== */
+
+@media (min-width: 1024px) {
+  .cursos__item {
+    flex-basis: calc((100% - 2 * 1.25rem) / 3);
+  }
+}

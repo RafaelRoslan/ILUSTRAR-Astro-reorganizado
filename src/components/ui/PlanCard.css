@@ -1,0 +1,80 @@
+.card-plano {
+  color: var(--text-color-2);
+  width: min(100%, 350px);
+}
+
+.card-plano.corLaranja .card-plano__destaque {
+  background-color: var(--secondary-alter-light-2);
+}
+
+.card-plano.corLaranja .card-plano__tipo {
+  background-color: var(--secondary-color-2);
+}
+
+.card-plano.corRosa .card-plano__destaque {
+  background-color: var(--primary-alter-light-3);
+}
+
+.card-plano.corRosa .card-plano__tipo {
+  background-color: var(--secondary-color-1);
+}
+
+.card-plano.corAzul .card-plano__destaque {
+  background-color: var(--primary-color-1);
+}
+
+.card-plano.corAzul .card-plano__tipo {
+  background-color: var(--primary-alter-dark-1);
+}
+
+.card-plano__destaque {
+  margin: 0.5rem;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.card-plano__tipo {
+  padding: 0.8rem;
+}
+
+.card-plano__tipo h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.card-plano__valor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.card-plano p {
+  font-family: "SongerG";
+  text-align: center;
+}
+
+.card-plano__cifrao {
+  font-family: "SongerG";
+  font-size: 2.5rem;
+}
+
+.card-plano__preco {
+  font-family: "SongerG";
+  font-size: clamp(4rem, 18vw, 5.75rem);
+  line-height: 1;
+  text-shadow: -3px 0 0 var(--primary-color-2);
+}
+
+.card-plano__periodo {
+  margin: 0;
+  padding-bottom: 0.8rem;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.card-plano__descricao p {
+  color: var(--primary-color-2);
+  padding: 0.2rem;
+}

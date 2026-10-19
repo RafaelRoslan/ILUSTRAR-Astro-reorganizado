@@ -1,0 +1,42 @@
+---
+import "./PlanCard.css";
+
+type Props = {
+  tipo?: string;
+  valor?: string;
+  descricao?: string[];
+  cor?: string;
+};
+
+const {
+  tipo = "Plano",
+  valor = "0",
+  descricao = [],
+  cor = "corLaranja",
+} = Astro.props as Props;
+---
+
+<article class={`card-plano ${cor}`}>
+  <div class="card-plano__destaque">
+    <div class="card-plano__tipo">
+      <h3>{tipo}</h3>
+    </div>
+
+    <div class="card-plano__oferta">
+      <div class="card-plano__valor">
+        <span class="card-plano__cifrao">R$</span>
+        <strong class="card-plano__preco">{valor}</strong>
+      </div>
+
+      <p class="card-plano__periodo">mensais</p>
+    </div>
+  </div>
+
+  {descricao.length > 0 && (
+    <div class="card-plano__descricao">
+      {descricao.map((item: string) => (
+        <p>{item}</p>
+      ))}
+    </div>
+  )}
+</article>

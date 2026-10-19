@@ -1,0 +1,24 @@
+---
+import { gerarLinkWhatsApp, site } from "../../data/site";
+import "./WhatsAppButton.css";
+
+// As propriedades permitem personalizar o botão
+// sem alterar o contato padrão da escola.
+const {
+  text = "AGENDE UMA AULA",
+  phone = site.whatsapp.numero,
+  message = site.whatsapp.mensagem,
+} = Astro.props;
+
+const whatsappUrl = gerarLinkWhatsApp(phone, message);
+---
+
+<a
+  class="whatsapp-button"
+  href={whatsappUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label={text}
+>
+  {text}
+</a>

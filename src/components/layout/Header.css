@@ -1,0 +1,213 @@
+
+/* ==========================================
+   ILUSTRAR — CABEÇALHO RESPONSIVO
+   Abordagem: mobile-first
+   ========================================== */
+
+/* 1. Estrutura principal */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background: var(--primary-alter-light-2);
+  font-family: "Rubik", sans-serif;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Estado do cabeçalho após iniciar a rolagem */
+.site-header.is-scrolled {
+  background: var(--background);
+  box-shadow: 0 4px 16px rgba(60, 16, 83, 0.12);
+}
+
+/* Hover dos links sobre o fundo branco */
+.site-header.is-scrolled .site-header__link:hover {
+  background: rgba(129, 85, 199, 0.1);
+}
+
+.site-header__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.5rem 1rem;
+}
+
+/* 2. Logotipo */
+
+.site-header__brand {
+  display: block;
+  width: clamp(130px, 42vw, 220px);
+  max-width: 100%;
+}
+
+.site-header__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* 3. Botão do menu mobile */
+
+.site-header__toggle {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--primary-alter-dark-2);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--primary-alter-dark-2);
+  font: inherit;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+
+  justify-content: center;
+  gap: 0;
+}
+
+.site-header__toggle svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* Ícone padrão: hambúrguer */
+.site-header__icon-close {
+  display: none;
+}
+
+/* Ícone quando o menu estiver aberto */
+.site-header[data-menu-open="true"]
+.site-header__icon-bars {
+  display: none;
+}
+
+.site-header[data-menu-open="true"]
+.site-header__icon-close {
+  display: block;
+}
+
+/* Permite rolar o menu em celulares baixos */
+.site-header__nav {
+  max-height: 70dvh;
+  overflow-y: auto;
+}
+
+/* 4. Navegação mobile */
+
+.site-header__nav {
+  display: none;
+  grid-column: 1 / -1;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.25rem;
+  padding: 0.75rem 0 0.4rem;
+  border-top: 1px solid rgba(60, 16, 83, 0.2);
+}
+
+/* Aberto somente após o clique no botão */
+.site-header[data-menu-open="true"] .site-header__nav {
+  display: flex;
+}
+
+.site-header__link {
+  display: block;
+  padding: 0.75rem;
+  border-radius: 8px;
+  color: var(--primary-alter-dark-2);
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+.site-header__link:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* 5. Botão de agendamento */
+
+.site-header__cta {
+  display: block;
+  margin-top: 0.5rem;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+
+  background: var(--secondary-color-2);
+  color: var(--text-color);
+
+  font-family: "SongerG", sans-serif;
+  font-size: 1.15rem;
+  text-align: center;
+  text-decoration: none;
+
+  box-shadow: 3px 4px 0 var(--secondary-alter-dark-1);
+}
+
+.site-header__cta:hover {
+  background: var(--secondary-alter-light-2);
+}
+
+/* 6. Acessibilidade */
+
+.site-header a:focus-visible,
+.site-header button:focus-visible {
+  outline: 3px solid var(--primary-alter-dark-2);
+  outline-offset: 3px;
+}
+
+/* ==========================================
+   DESKTOP — A PARTIR DE 960px
+   ========================================== */
+
+@media (min-width: 1120px) {
+  .site-header__inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .site-header__brand {
+    flex: 0 0 auto;
+    width: clamp(170px, 18vw, 200px);
+  }
+
+  /* O botão mobile deixa de aparecer */
+  .site-header__toggle {
+    display: none;
+  }
+
+  /* Navegação horizontal permanente */
+  .site-header__nav {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: clamp(0.3rem, 0.8vw, 1rem);
+
+    padding: 0;
+    border: 0;
+  }
+
+  .site-header__nav {
+  max-height: none;
+  overflow: visible;
+}
+
+  .site-header__link {
+    padding: 0.55rem 0.3rem;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+
+  .site-header__cta {
+    flex: 0 0 auto;
+    margin: 0 0 0 0.25rem;
+    padding: 0.7rem 0.85rem;
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+}

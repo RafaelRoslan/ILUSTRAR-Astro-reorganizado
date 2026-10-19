@@ -1,0 +1,137 @@
+---
+import { Image } from "astro:assets";
+import detalhe from "../../../assets/images/detalhe_img.png";
+import meninaDesenhando from "../../../assets/images/menina.png";
+import WhatsAppButton from "../../ui/WhatsAppButton.astro";
+import "./Hero.css";
+---
+
+<section class="cover" aria-labelledby="cover-title-1 cover-title-2"
+>
+  <div class="cover__content">
+
+    <div class="cover__slogan">
+      <img class="cover__detail-img" src={detalhe.src} alt="linhas">
+      
+      <div class="cover__title">
+        <h1 id="cover-title-1">
+          Desperte o artista
+        </h1>
+        <h1 id="cover-title-2">
+          que há em seu filho!
+        </h1>
+      </div>
+    
+      
+    </div>
+  </div>
+
+  <div class="cover__banner">
+    <div class="cover__top-wave" aria-hidden="true">
+  <!-- MOBILE -->
+  <div class="cover__top-wave-group cover__top-wave-group--mobile">
+    <svg
+      class="cover__top-wave-svg cover__top-wave-svg--white"
+      viewBox="0 0 1440 180"
+      preserveAspectRatio="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M0,0 H1440 V78
+           C1220,132 1040,120 900,94
+           C760,68 620,52 470,62
+           C300,74 150,110 0,92
+           Z"
+        fill="#ffffff"
+      />
+    </svg>
+
+    <svg
+      class="cover__top-wave-svg cover__top-wave-svg--purple"
+      viewBox="0 0 1440 180"
+      preserveAspectRatio="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M0,0 H1440 V58
+           C1260,92 1100,108 950,92
+           C790,76 650,36 500,40
+           C330,44 170,78 0,70
+           Z"
+        fill="var(--primary-alter-light-2)"
+      />
+    </svg>
+  </div>
+
+  <!-- DESKTOP -->
+  <div class="cover__top-wave-group cover__top-wave-group--desktop">
+  <svg
+    class="cover__top-wave-svg cover__top-wave-svg--white"
+    viewBox="0 0 1440 220"
+    preserveAspectRatio="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M0,0 H1440
+         V124
+         C1280,158 1150,170 1010,154
+        C860,138 740,78 600,74
+        C470,72 350,118 220,138
+         C130,142 60,146 0,142
+         Z"
+      fill="#ffffff"
+    />
+  </svg>
+
+  <svg
+    class="cover__top-wave-svg cover__top-wave-svg--purple"
+    viewBox="0 0 1440 220"
+    preserveAspectRatio="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M0,0 H1440
+         V84
+         C1290,102 1170,112 1030,104
+         C890,96 770,62 630,58
+         C500,54 370,74 230,88
+         C135,96 62,100 0,96
+         Z"
+      fill="var(--primary-alter-light-2)"
+    />
+  </svg>
+</div>
+
+</div>
+
+    <Image
+      class="cover__main-image"
+      src={meninaDesenhando}
+      alt="Menina sorrindo com o rosto pintado"
+      width={1280}
+      widths={[360, 520, 800, 1280]}
+      sizes="(min-width: 768px) 640px, (min-width: 520px) 520px, 100vw"
+      format="webp"
+      quality={88}
+      loading="eager"
+      fetchpriority="high"
+    />
+
+    <div class="cover__bottom-wave" aria-hidden="true">
+      <svg
+        viewBox="0 0 1440 150"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0,120 C360,70 560,70 760,115 C980,165 1180,145 1440,100 L1440,180 L0,180 Z"
+          fill="var(--primary-color-2)"
+        />
+      </svg>
+    </div>
+  </div>
+
+  <div class="cover__button">
+    <WhatsAppButton />
+  </div>
+</section>

@@ -1,0 +1,58 @@
+---
+import CardPlano from "../../ui/PlanCard.astro";
+import SectionHeading from "../../ui/SectionHeading.astro";
+import "./Plans.css";
+
+const planos = [
+  {
+    tipo: "Padrão",
+    valor: "160",
+    cor: "corLaranja",
+    descricao: [
+      "Aula de 2 horas, 1 vez por semana;",
+      "Certificado de conclusão;",
+      "Sem taxa de matrícula e cancelamento;",
+    ],
+  },
+  {
+    tipo: "Médio",
+    valor: "200",
+    cor: "corAzul",
+    descricao: [
+      "Aula de 2 horas, 1 vez por semana;",
+      "Certificado de conclusão;",
+      "Sem taxa de matrícula e cancelamento;",
+    ],
+  },
+  {
+    tipo: "Intensivo",
+    valor: "240",
+    cor: "corRosa",
+    descricao: [
+      "Aula de 2 horas, 2 vezes por semana;",
+      "Certificado de conclusão;",
+      "Sem taxa de matrícula e cancelamento;",
+    ],
+  },
+];
+---
+
+<section id="planos" class="section planos" aria-labelledby="planos-title">
+  <SectionHeading
+    id="planos-title"
+    eyebrow="Planos"
+    title="Escolha o ritmo que combina com o aluno."
+    description="Três opções simples para começar e continuar evoluindo."
+  />
+
+  <div class="planos__area">
+    {planos.map((plano) => (
+      <CardPlano
+        tipo={plano.tipo}
+        valor={plano.valor}
+        descricao={plano.descricao}
+        cor={plano.cor}
+      />
+    ))}
+  </div>
+</section>

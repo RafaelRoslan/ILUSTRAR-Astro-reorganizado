@@ -1,0 +1,165 @@
+---
+/**
+ * CHAMADA FINAL — ILUSTRAR
+ *
+ * Reaproveita a antiga seção Agenda.
+ * Reúne agendamento, redes sociais e ilustração.
+ *
+ * Os links são mantidos em src/data/site.ts.
+ */
+
+import SectionHeading from "../../ui/SectionHeading.astro";
+import WhatsAppButton from "../../ui/WhatsAppButton.astro";
+
+import imgRafael from "../../../assets/images/rafael_azeitona.png";
+
+import iconFacebook from "../../../assets/icons/facebook.svg";
+import iconInstagram from "../../../assets/icons/instagram.svg";
+import iconYoutube from "../../../assets/icons/youtube.svg";
+
+import { site } from "../../../data/site";
+
+import "./Agenda.css";
+
+// Editar links em src/data/site.ts.
+const redesSociais = [
+  {
+    nome: "Instagram",
+    url: site.redes.instagram,
+    icon: iconInstagram,
+  },
+  {
+    nome: "YouTube",
+    url: site.redes.youtube,
+    icon: iconYoutube,
+  },
+  {
+    nome: "Facebook",
+    url: site.redes.facebook,
+    icon: iconFacebook,
+  },
+];
+---
+
+
+
+<section id="agendar" class="section agenda" aria-labelledby="agenda-title">
+
+  <div class="agenda__layout">
+    <!-- COLUNA 1: conteúdo e ações -->
+    <div class="agenda__content">
+      <!-- Chamada final para matrícula -->
+      <SectionHeading
+        id="agenda-title"
+        eyebrow="Agende sua aula"
+        title="O próximo desenho pode começar hoje."
+        description="Conheça a ILUSTRAR e descubra um espaço para aprender, criar e desenvolver novas habilidades."
+      />
+
+      <div class="agenda__button">
+        <WhatsAppButton />
+      </div>
+
+      <!-- Redes sociais oficiais da escola -->
+      <div class="agenda__social">
+
+        <p id="agenda-social-title" class="agenda__social-label">
+          Acompanhe a ILUSTRAR nas redes sociais
+        </p>
+
+        <nav
+          class="agenda__redes"
+          aria-labelledby="agenda-social-title"
+        >
+          {
+            redesSociais.map((rede) => (
+              <a
+                href={rede.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Visitar o ${rede.nome} da ILUSTRAR`}
+              >
+                <img
+                  src={rede.icon.src}
+                  alt=""
+                  aria-hidden="true"
+                />
+              </a>
+            ))
+          }
+        </nav>
+
+      </div>
+    </div>
+    <!-- COLUNA 2: ilustração original -->
+    <div class="agenda__media">
+      <div class="agenda__image">
+        <img
+          src={imgRafael.src}
+          alt="Dois personagens da Ilustrar, o menino Rafael e seu cachorro Azeitona, correndo."
+        />
+      </div>
+    </div>
+  </div>
+  
+  
+
+  <div class="agenda__waves" aria-hidden="true">
+    <!-- Waves mobile -->
+    <div class="agenda__wave-group agenda__wave-group--mobile">
+      <svg
+        class="agenda__wave agenda__wave--back"
+        viewBox="0 0 1440 320"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill="var(--primary-color-2)"
+          fill-opacity="0.4"
+          d="M0,192 C320,256 640,90 960,160 C1200,230 1320,190 1440,160 L1440,320 L0,320 Z"
+        />
+      </svg>
+
+      <svg
+        class="agenda__wave agenda__wave--front"
+        viewBox="0 0 1440 320"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill="var(--primary-color-2)"
+          d="M0,192 C320,256 640,90 960,160 C1200,230 1320,190 1440,160 L1440,320 L0,320 Z"
+        />
+      </svg>
+    </div>
+
+    <!-- Waves desktop mais suaves -->
+    <div class="agenda__wave-group agenda__wave-group--desktop">
+      <svg
+        class="agenda__wave agenda__wave--back"
+        viewBox="0 0 1440 320"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill="var(--primary-color-2)"
+          fill-opacity="0.4"
+          d="M0,210 C360,120 560,120 760,180 C980,245 1180,210 1440,145 L1440,320 L0,320 Z"
+        />
+      </svg>
+
+      <svg
+        class="agenda__wave agenda__wave--front"
+        viewBox="0 0 1440 320"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill="var(--primary-color-2)"
+          d="M0,220 C360,140 580,135 780,190 C1000,250 1190,220 1440,160 L1440,320 L0,320 Z"
+        />
+      </svg>
+    </div>
+  </div>
+
+</section>

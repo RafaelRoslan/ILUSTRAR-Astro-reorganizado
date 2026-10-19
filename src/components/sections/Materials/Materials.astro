@@ -1,0 +1,38 @@
+---
+import imgMaterial from "../../../assets/images/kit_material.png";
+import SectionHeading from "../../ui/SectionHeading.astro";
+import "./Materials.css";
+---
+
+
+<section id="materiais" class="section material" aria-labelledby="material-title">
+  <SectionHeading
+    id="material-title"
+    eyebrow="Material didático"
+    title="Tudo pronto para colocar a criatividade em movimento."
+    description="Material didático exclusivo com apostilas ilustradas, desafios criativos e técnicas passo a passo para todos os níveis."
+  />
+
+  <div class="material__content">
+    <div class="material__card">
+      <div class="material__valor">
+        <h3>Valor do kit</h3>
+        <p>R$ 210</p>
+      </div>
+
+      <div class="material__card-descricao">
+        <p>
+          Inclui todos os materiais acima, podendo haver variações nas cores
+          e/ou estampas.
+        </p>
+      </div>
+    </div>
+
+    <div class="material__image">
+      <img
+        src={imgMaterial.src}
+        alt="Kit de material didático da escola Ilustrar"
+      />
+    </div>
+  </div>
+</section>

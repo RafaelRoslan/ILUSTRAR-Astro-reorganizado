@@ -1,0 +1,150 @@
+
+/* ==========================================
+   ILUSTRAR — TÍTULOS DAS SEÇÕES
+
+   Padrão tipográfico reutilizável.
+   Estilização mobile-first.
+   ========================================== */
+
+/* 1. Contêiner principal */
+
+.section-heading {
+  width: 100%;
+  max-width: 68rem;
+  margin: 0 auto 1.75rem;
+  padding-inline: 1rem;
+  text-align: center;
+}
+
+/* 2. Identificador pequeno */
+
+.section-heading__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+
+  margin-bottom: 0.6rem;
+
+  font-family: "Rubik", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.4;
+
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  color: var(--primary-alter-dark-2);
+}
+
+/* Traços decorativos antes e depois do identificador */
+.section-heading__eyebrow::before,
+.section-heading__eyebrow::after {
+  content: "";
+  display: block;
+  flex-shrink: 0;
+
+  width: clamp(1.25rem, 3vw, 2rem);
+  height: 2px;
+
+  border-radius: 2px;
+  background: currentColor;
+}
+
+/* 3. Título principal */
+
+.section-heading__title {
+  margin: 0;
+  padding: 0;
+
+  font-family: "Brownist", sans-serif;
+  font-size: clamp(2.1rem, 6vw, 3.7rem);
+  line-height: 1.1;
+  font-weight: 900;
+
+  color: var(--primary-color-2);
+  text-wrap: balance;
+}
+
+/* 4. Descrição complementar */
+
+.section-heading__description {
+  max-width: 42rem;
+  margin: 0.85rem auto 0;
+
+  font-family: "Rubik", sans-serif;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  line-height: 1.65;
+
+  color: var(--text-color);
+}
+
+/* 5. Alinhamento à esquerda */
+
+.section-heading--left {
+  text-align: left;
+}
+
+.section-heading--left .section-heading__title {
+  text-align: left;
+}
+
+.section-heading--left .section-heading__description {
+  margin-inline: 0;
+  text-align: left;
+}
+
+/* 6. Versão para fundos escuros */
+
+.section-heading--light .section-heading__eyebrow,
+.section-heading--light .section-heading__title,
+.section-heading--light .section-heading__description {
+  color: var(--text-color-2);
+}
+
+/* ==========================================
+   TELAS MAIORES
+   ========================================== */
+
+@media (min-width: 768px) {
+  .section-heading {
+    margin-bottom: 2.5rem;
+  }
+
+  .section-heading__eyebrow {
+    font-size: 0.95rem;
+  }
+}
+
+/* Protege títulos longos em telas pequenas. */
+.section-heading__title {
+  overflow-wrap: break-word;
+}
+
+/* Melhora a legibilidade em telas estreitas. */
+/* ==========================================
+   TÍTULOS — AJUSTES MOBILE
+   ========================================== */
+
+@media (max-width: 600px) {
+
+  .section-heading {
+    /* Remove o excesso de padding interno.
+       A seção principal já possui margens. */
+    padding-inline: 0.25rem;
+  }
+
+  .section-heading__title {
+    width: 100%;
+
+    /* Títulos ligeiramente menores para
+       aproveitar melhor a largura da tela. */
+    font-size: clamp(1.85rem, 7.6vw, 2.45rem);
+    text-wrap: balance;
+  }
+
+  /* Traços menores nos celulares */
+  .section-heading__eyebrow::before,
+  .section-heading__eyebrow::after {
+    width: 1.35rem;
+  }
+}

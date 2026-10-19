@@ -1,0 +1,121 @@
+
+/* ==========================================
+   ILUSTRAR — FAIXA DE DIFERENCIAIS
+   Layout mobile-first
+
+   Mobile: 2 colunas
+   Desktop: 4 colunas
+   ========================================== */
+
+/* 1. Fundo da faixa */
+
+.differentials {
+  width: 100%;
+  padding: 1.5rem 1rem 2.5rem;
+
+  background: var(--primary-color-2);
+}
+
+/* 2. Cartão principal */
+
+.differentials__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  width: 100%;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 0;
+  gap: 2px;
+
+  list-style: none;
+
+  background: var(--primary-alter-light-2);
+
+  border: 2px solid var(--primary-alter-dark-2);
+  border-radius: 22px 8px;
+  overflow: hidden;
+
+  box-shadow: 7px 7px 0 var(--primary-color-3);
+}
+
+/* 3. Cada diferencial */
+
+.differentials__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.4rem;
+  min-width: 0;
+  min-height: 125px;
+
+  padding: 1rem 0.6rem;
+
+  background: var(--background);
+  text-align: center;
+}
+
+/* 4. Número ou símbolo principal */
+
+.differentials__value {
+  display: block;
+
+  font-family: "Brownist", sans-serif;
+  font-size: clamp(2.3rem, 8vw, 3.5rem);
+  font-weight: 900;
+  line-height: 1;
+
+  color: var(--primary-color-2);
+}
+
+/* 5. Texto complementar */
+
+.differentials__label {
+  max-width: 180px;
+
+  font-family: "Rubik", sans-serif;
+  font-size: clamp(0.78rem, 2.6vw, 0.95rem);
+  line-height: 1.4;
+  font-weight: 600;
+
+  color: var(--text-color);
+
+  overflow-wrap: break-word;
+}
+
+/* 6. Texto apenas para leitores de tela */
+
+.differentials__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ==========================================
+   TABLET E DESKTOP
+   ========================================== */
+
+@media (min-width: 768px) {
+
+  /* Quatro destaques em uma única linha */
+  .differentials__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .differentials__item {
+    min-height: 140px;
+    padding: 1.3rem 1rem;
+  }
+
+  .differentials__label {
+    font-size: 0.95rem;
+  }
+}

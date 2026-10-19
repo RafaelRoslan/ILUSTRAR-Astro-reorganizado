@@ -1,0 +1,104 @@
+
+---
+/**
+ * RODAPÉ PRINCIPAL — ILUSTRAR
+ *
+ * Responsabilidades:
+ * - Apresentar a identidade da escola;
+ * - Oferecer navegação complementar;
+ * - Exibir informações institucionais;
+ * - Permitir o retorno ao início.
+ *
+ * Os links vêm de src/data/site.ts.
+ */
+
+import { menuItems, site } from "../../data/site";
+
+import "./Footer.css";
+
+// Ano atualizado em cada build do Astro.
+const anoAtual = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+
+  <div class="site-footer__inner">
+
+    <!-- ÁREA PRINCIPAL -->
+    <div class="site-footer__main">
+
+      <!-- Identidade institucional -->
+      <div class="site-footer__identity">
+
+        <p class="site-footer__brand">
+          {site.nome}
+        </p>
+
+        <p class="site-footer__type">
+          Escola de Desenho
+        </p>
+
+        <p class="site-footer__description">
+          Um espaço para aprender, criar e
+          desenvolver novas habilidades
+          por meio da arte.
+        </p>
+
+      </div>
+
+      <!-- Navegação complementar -->
+      <nav
+        class="site-footer__navigation"
+        aria-label="Navegação do rodapé"
+      >
+
+        <h2 class="site-footer__heading">
+          Explore o site
+        </h2>
+
+        <ul class="site-footer__links">
+
+          {
+            menuItems.map((item) => (
+              <li>
+                <a href={item.href}>
+                  {item.texto}
+                </a>
+              </li>
+            ))
+          }
+
+          <!-- Link direto para a chamada final -->
+          <li>
+            <a href="#agendar">
+              Agende sua aula
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+    </div>
+
+    <!-- INFORMAÇÕES FINAIS -->
+    <div class="site-footer__bottom">
+
+      <small class="site-footer__copyright">
+        © {anoAtual} {site.nome}.
+        Todos os direitos reservados.
+      </small>
+
+      <a
+        class="site-footer__top"
+        href="#inicio"
+      >
+        Voltar ao início
+        <span aria-hidden="true">↑</span>
+      </a>
+
+    </div>
+
+  </div>
+
+</footer>

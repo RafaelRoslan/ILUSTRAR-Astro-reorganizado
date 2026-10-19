@@ -1,0 +1,44 @@
+
+/* ==========================================
+   ILUSTRAR — DÚVIDAS FREQUENTES
+
+   Seção exclusiva para perguntas.
+   Contatos e redes sociais foram movidos.
+   ========================================== */
+
+/* Fundo branco, sem faixa roxa entre seções */
+.section.contato-faq {
+  width: 100%;
+  padding: clamp(3rem, 6vw, 5rem) 1rem;
+
+  background: var(--background);
+}
+
+/* Área principal */
+.contato-faq__faq {
+  width: 100%;
+  max-width: 1000px;
+  margin-inline: auto;
+}
+
+/* Título padronizado */
+.contato-faq .section-heading {
+  margin-bottom: 2rem;
+}
+
+/* Lista de perguntas */
+.contato-faq__faq-list {
+  display: grid;
+  gap: 0.75rem;
+
+  width: 100%;
+  max-width: 820px;
+  margin-inline: auto;
+}
+
+/* Espaçamento em telas maiores */
+@media (min-width: 768px) {
+  .contato-faq__faq-list {
+    gap: 1rem;
+  }
+}

@@ -1,0 +1,105 @@
+
+---
+/**
+ * SEÇÃO DE INCLUSÃO — ILUSTRAR
+ *
+ * Apresenta os princípios de acolhimento
+ * e respeito ao ritmo de cada aluno.
+ *
+ * Reutiliza:
+ * - SectionHeading: títulos padronizados;
+ * - site.ts: contato centralizado;
+ * - ribbon_autism.png: ilustração existente.
+ */
+
+import { Image } from "astro:assets";
+
+import lacoInclusao from "../../../assets/images/ribbon_autism.png";
+import SectionHeading from "../../ui/SectionHeading.astro";
+
+import { gerarLinkWhatsApp } from "../../../data/site";
+
+import "./Inclusion.css";
+
+// Mensagem específica para contato sobre inclusão.
+const mensagem =
+    "Olá! Gostaria de conhecer melhor as aulas da ILUSTRAR e conversar sobre as necessidades de aprendizagem do meu filho.";
+
+const whatsappUrl = gerarLinkWhatsApp(
+    undefined,
+    mensagem
+);
+---
+
+<section
+    id="inclusao"
+    class="section inclusion"
+    aria-labelledby="inclusao-title"
+    >
+    <div class="inclusion__inner">
+
+        <!-- Conteúdo principal -->
+        <div class="inclusion__content">
+
+        <SectionHeading
+            id="inclusao-title"
+            eyebrow="Acolhimento de verdade"
+            title="Cada aluno aprende de um jeito. E isso faz parte da arte."
+            description="A Ilustrar valoriza um ensino humano e inclusivo, com atenção às necessidades, ao ritmo e às potencialidades de cada aluno."
+            align="left"
+            tone="light"
+        />
+
+        <!-- Contato com a equipe -->
+        <a
+            class="inclusion__cta"
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Converse com nossa equipe
+
+            <span aria-hidden="true">↗</span>
+        </a>
+
+        </div>
+
+        <!-- Ilustração decorativa -->
+        <div class="inclusion__visual" aria-hidden="true">
+        <Image
+            class="inclusion__image"
+            src={lacoInclusao}
+            alt=""
+            width={460}
+            format="webp"
+            quality={85}
+            loading="lazy"
+            decoding="async"
+        />
+        </div>
+
+    </div>
+
+    
+    <!-- Onda decorativa de transição para Planos -->
+    <div class="inclusion__wave" aria-hidden="true">
+    <svg
+        viewBox="0 0 1440 170"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <!-- Faixa clara acompanhando a onda -->
+        <path
+        d="M-20,80 C190,132 320,118 500,70 C710,14 880,32 1060,88 C1240,142 1360,120 1460,76 L1460,170 L-20,170 Z"
+        fill="var(--primary-alter-light-1)"
+        />
+
+        <!-- Transição para o fundo branco -->
+        <path
+        d="M-20,100 C180,148 330,134 500,88 C700,34 850,44 1040,98 C1220,148 1340,132 1460,92 L1460,170 L-20,170 Z"
+        fill="var(--background)"
+        />
+    </svg>
+    </div>
+
+</section>

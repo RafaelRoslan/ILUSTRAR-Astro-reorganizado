@@ -1,0 +1,62 @@
+
+---
+/**
+ * COMPONENTE: SectionHeading
+ *
+ * Título reutilizável das seções.
+ *
+ * id: identificador para aria-labelledby
+ * eyebrow: texto menor acima do título
+ * title: título principal da seção
+ * description: descrição opcional
+ * align: alinhamento do conteúdo
+ * tone: cor do texto conforme o fundo
+ */
+
+import "./SectionHeading.css";
+
+interface Props {
+  id: string;
+  eyebrow: string;
+  title: string;
+  description?: string;
+  align?: "center" | "left";
+  tone?: "primary" | "light";
+}
+
+const {
+  id,
+  eyebrow,
+  title,
+  description,
+  align = "center",
+  tone = "primary",
+} = Astro.props;
+---
+
+<header
+  class:list={[
+    "section-heading",
+    `section-heading--${align}`,
+    `section-heading--${tone}`,
+  ]}
+>
+  <!-- Identificador pequeno -->
+  <p class="section-heading__eyebrow">
+    {eyebrow}
+  </p>
+
+  <!-- Título principal: um único h2 -->
+  <h2 id={id} class="section-heading__title">
+    {title}
+  </h2>
+
+  <!-- Descrição: exibida apenas se informada -->
+  {
+    description && (
+      <p class="section-heading__description">
+        {description}
+      </p>
+    )
+  }
+</header>

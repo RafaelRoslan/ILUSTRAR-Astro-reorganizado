@@ -1,0 +1,67 @@
+---
+/**
+ * FAIXA DE DIFERENCIAIS — ILUSTRAR
+ *
+ * Exibe informações resumidas sobre a escola.
+ *
+ * Para modificar um destaque, altere somente
+ * o array "diferenciais" abaixo.
+ *
+ * Não utiliza JavaScript no navegador.
+ */
+
+import "./Differentials.css";
+
+// Informações apresentadas na faixa.
+// Confirme os dados institucionais antes de publicar.
+const diferenciais = [
+  {
+    valor: "12",
+    descricao: "cursos criativos",
+  },
+  {
+    valor: "3",
+    descricao: "níveis de evolução",
+  },
+  {
+    valor: "1",
+    descricao: "metodologia exclusiva",
+  },
+  {
+    valor: "∞",
+    descricao: "ideias para colocar no papel",
+  },
+];
+---
+
+<section
+  class="differentials"
+  aria-label="Diferenciais da ILUSTRAR"
+>
+  <ul class="differentials__grid">
+    {
+      diferenciais.map((item) => (
+        <li class="differentials__item">
+
+          <strong class="differentials__value">
+            {item.valor === "∞" ? (
+              <>
+                <span aria-hidden="true">∞</span>
+                <span class="differentials__sr-only">
+                  Infinitas
+                </span>
+              </>
+            ) : (
+              item.valor
+            )}
+          </strong>
+
+          <span class="differentials__label">
+            {item.descricao}
+          </span>
+
+        </li>
+      ))
+    }
+  </ul>
+</section>
