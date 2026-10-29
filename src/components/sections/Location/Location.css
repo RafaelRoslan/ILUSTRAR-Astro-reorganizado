@@ -160,138 +160,19 @@
 
 .location__map {
   grid-area: map;
-  position: relative;
-  isolation: isolate;
+  display: block;
 
   width: 100%;
-  min-width: 0;
-  height: 290px;
+  max-width: 900px;
+  height: auto;
 
-  overflow: hidden;
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
 
   border: 3px solid var(--primary-alter-dark-2);
   border-radius: 22px 8px;
 
-  background: var(--primary-alter-light-1);
-
   box-shadow: 9px 10px 0 var(--primary-color-3);
-}
-
-/* Ruas decorativas */
-
-.location__road {
-  position: absolute;
-  z-index: 1;
-  display: block;
-
-  background: var(--background);
-}
-
-.location__road--one {
-  width: 70px;
-  height: 140%;
-
-  top: -20%;
-  left: 40%;
-
-  transform: rotate(22deg);
-}
-
-.location__road--two {
-  width: 140%;
-  height: 58px;
-
-  top: 46%;
-  left: -20%;
-
-  transform: rotate(-9deg);
-}
-
-/* Quadras ilustrativas */
-
-.location__block {
-  position: absolute;
-  z-index: 0;
-
-  background: #85b9b7;
-  border: 2px solid var(--primary-alter-dark-2);
-  border-radius: 8px;
-}
-
-.location__block--one {
-  width: 95px;
-  height: 70px;
-  top: 10%;
-  left: 8%;
-}
-
-.location__block--two {
-  width: 110px;
-  height: 85px;
-  right: 7%;
-  bottom: 9%;
-}
-
-.location__block--three {
-  width: 70px;
-  height: 65px;
-  left: 9%;
-  bottom: 8%;
-
-  background: var(--primary-alter-light-3);
-}
-
-/* 7. Marcador da escola */
-
-.location__pin {
-  position: absolute;
-  z-index: 2;
-
-  width: 62px;
-  height: 62px;
-
-  top: 43%;
-  left: 55%;
-
-  background: var(--secondary-color-1);
-  border: 4px solid var(--primary-alter-dark-2);
-  border-radius: 50% 50% 50% 5%;
-
-  transform: translate(-50%, -50%) rotate(-45deg);
-
-  box-shadow: 5px 5px 0 var(--primary-color-3);
-}
-
-.location__pin::after {
-  content: "";
-  position: absolute;
-  inset: 17px;
-
-  border-radius: 50%;
-  background: var(--background);
-  border: 2px solid var(--primary-alter-dark-2);
-}
-
-/* Identificação visual */
-
-.location__map-label {
-  position: absolute;
-  z-index: 3;
-
-  top: calc(43% + 49px);
-  left: 55%;
-
-  transform: translateX(-50%);
-
-  padding: 0.4rem 0.65rem;
-  border-radius: 5px;
-
-  background: var(--primary-alter-dark-2);
-  color: var(--text-color-2);
-
-  font-family: "SongerG", sans-serif;
-  font-size: 1rem;
-  letter-spacing: 0.05em;
 }
 
 /* ==========================================
@@ -317,7 +198,4 @@
     gap: clamp(2rem, 5vw, 5rem);
   }
 
-  .location__map {
-    height: 420px;
-  }
 }

@@ -1,4 +1,3 @@
-
 ---
 /**
  * SEÇÃO DE INCLUSÃO — ILUSTRAR
@@ -6,15 +5,11 @@
  * Apresenta os princípios de acolhimento
  * e respeito ao ritmo de cada aluno.
  *
- * Reutiliza:
- * - SectionHeading: títulos padronizados;
- * - site.ts: contato centralizado;
- * - ribbon_autism.png: ilustração existente.
  */
 
 import { Image } from "astro:assets";
 
-import lacoInclusao from "../../../assets/images/ribbon_autism.png";
+import imgInclusao from "../../../assets/images/inclusao/inclusao-ilustrada.webp";
 import SectionHeading from "../../ui/SectionHeading.astro";
 
 import { gerarLinkWhatsApp } from "../../../data/site";
@@ -65,11 +60,11 @@ const whatsappUrl = gerarLinkWhatsApp(
         </div>
 
         <!-- Ilustração decorativa -->
-        <div class="inclusion__visual" aria-hidden="true">
+        <div class="inclusion__visual">
         <Image
             class="inclusion__image"
-            src={lacoInclusao}
-            alt=""
+            src={imgInclusao}
+            alt="Professora acompanhando três crianças em atividade de pintura e desenho, incluindo uma criança em cadeira de rodas."
             width={460}
             format="webp"
             quality={85}

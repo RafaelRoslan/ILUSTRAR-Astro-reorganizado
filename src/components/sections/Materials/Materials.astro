@@ -1,5 +1,5 @@
 ---
-import imgMaterial from "../../../assets/images/kit_material.png";
+import imgMaterial from "../../../assets/images/materials/kit_material.webp";
 import SectionHeading from "../../ui/SectionHeading.astro";
 import "./Materials.css";
 ---
@@ -17,7 +17,12 @@ import "./Materials.css";
     <div class="material__card">
       <div class="material__valor">
         <h3>Valor do kit</h3>
-        <p>R$ 210</p>
+
+        <!-- Cifrão e número separados para alinhamento -->
+        <p class="material__preco">
+          <span class="material__cifrao">R$</span>
+          <strong class="material__quantia">210</strong>
+        </p>
       </div>
 
       <div class="material__card-descricao">

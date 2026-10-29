@@ -36,33 +36,43 @@
   box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
 }
 
-/* Área reservada à ilustração */
-.card-curso__media {
-  display: grid;
-  place-items: center;
 
+/* Área visual comum aos 12 cards */
+.card-curso__media {
+  position: relative;
   width: 100%;
   aspect-ratio: 5 / 6;
-  height: auto;
-  min-height: 0;
-  flex-shrink: 0;
-
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.28);
-
   overflow: hidden;
 }
 
-/* Imagem do curso */
-.card-curso__imagem {
-  display: block;
+/* Fundo específico de cada nível */
+.card-curso__fundo {
+  position: absolute;
+  inset: 0;
+
   width: 100%;
   height: 100%;
+
+  object-fit: cover;
+}
+
+/* Ilustração exclusiva de cada curso */
+.card-curso__imagem {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  width: 100%;
+  height: 100%;
+
   object-fit: contain;
+  object-position: center bottom;
 
   user-select: none;
   pointer-events: none;
 }
+
 
 /* Textos */
 .card-curso__conteudo {

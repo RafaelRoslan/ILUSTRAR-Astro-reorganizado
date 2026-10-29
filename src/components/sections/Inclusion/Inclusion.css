@@ -90,6 +90,14 @@
 
 /* 5. Área visual do laço */
 
+
+/* ==========================================
+   5. ILUSTRAÇÃO DE INCLUSÃO
+
+   Mantém o círculo decorativo da seção,
+   aproveitando melhor a nova imagem.
+   ========================================== */
+
 .inclusion__visual {
   display: grid;
   place-items: center;
@@ -98,7 +106,9 @@
   aspect-ratio: 1;
 
   margin-inline: auto;
-  padding: 1rem;
+
+  /* Reduz o espaço entre imagem e borda */
+  /* padding: 0.4rem; */
 
   border: 2px dashed rgba(255, 255, 255, 0.45);
   border-radius: 50%;
@@ -106,12 +116,18 @@
   background: rgba(255, 255, 255, 0.08);
 }
 
+/* Nova ilustração oficial */
 .inclusion__image {
   display: block;
-  width: 80%;
+
+  /* A imagem agora aproveita toda a área */
+  width: 100%;
   height: auto;
+
+  aspect-ratio: 1 / 1;
   object-fit: contain;
 }
+
 
 
 /* ==========================================
@@ -127,13 +143,13 @@
 
   line-height: 0;
   pointer-events: none;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .inclusion__wave svg {
   display: block;
   width: 100%;
-  height: 100%;
+  height: 105%;
 }
 
 /* 6. Alinhamento mobile */

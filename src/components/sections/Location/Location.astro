@@ -1,4 +1,3 @@
-
 ---
 /**
  * LOCALIZAÇÃO — ILUSTRAR
@@ -12,6 +11,8 @@
  * Os dados são centralizados em site.ts.
  */
 
+import { Image } from "astro:assets";
+import mapaIlustrar from "../../../assets/images/localizacao/mapa-ilustrar.webp";
 import SectionHeading from "../../ui/SectionHeading.astro";
 
 import {
@@ -65,8 +66,8 @@ const contatoUrl = gerarLinkWhatsApp(
         <div>
           <strong>Atendimento</strong>
           <p>
-            Consulte os horários disponíveis
-            pelo WhatsApp.
+            Terça a sexta: das 9:00 às 17:30.
+            Sábado: 8:00 às 17:30
           </p>
         </div>
 
@@ -107,31 +108,17 @@ const contatoUrl = gerarLinkWhatsApp(
 
     </div>
 
-    <!--
-      Mapa decorativo inspirado na V2.
-      Não representa a geografia real.
-      A localização verdadeira é aberta
-      pelo botão do Google Maps.
-    -->
-    <div class="location__map" aria-hidden="true">
 
-      <!-- Ruas ilustrativas -->
-      <span class="location__road location__road--one"></span>
-      <span class="location__road location__road--two"></span>
+    <Image
+      class="location__map"
+      src={mapaIlustrar}
+      alt="Mapa ilustrativo da localização da ILUSTRAR em Ibiúna."
+      width={900}
+      height={600}
+      loading="lazy"
+      decoding="async"
+    />
 
-      <!-- Quadras decorativas -->
-      <span class="location__block location__block--one"></span>
-      <span class="location__block location__block--two"></span>
-      <span class="location__block location__block--three"></span>
-
-      <!-- Marcador da escola -->
-      <span class="location__pin"></span>
-
-      <strong class="location__map-label">
-        ILUSTRAR
-      </strong>
-
-    </div>
 
   </div>
 </section>

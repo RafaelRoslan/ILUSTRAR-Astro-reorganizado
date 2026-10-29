@@ -53,17 +53,49 @@
   text-transform: uppercase;
 }
 
-.material__valor p {
+
+/* ==========================================
+   VALOR DO KIT — ALINHAMENTO CENTRAL
+   ========================================== */
+
+.material__preco {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr) auto minmax(0, 1fr);
+
+  align-items: baseline;
+  column-gap: 0.35rem;
+
+  width: 100%;
   margin: 0;
   padding: 0;
 
   font-family: "SongerG", sans-serif;
-  font-size: clamp(3.2rem, 13vw, 5.2rem);
-  line-height: 0.9;
-
   color: var(--text-color);
+}
+
+/* Cifrão discreto à esquerda */
+.material__cifrao {
+  grid-column: 1;
+  justify-self: end;
+
+  font-size: clamp(1.2rem, 4vw, 1.7rem);
+  line-height: 1;
+}
+
+/* Valor centralizado */
+.material__quantia {
+  grid-column: 2;
+  justify-self: center;
+
+  font-size: clamp(3.2rem, 13vw, 5.2rem);
+  font-weight: 400;
+  line-height: 1;
+
+  /* Mantém o efeito de destaque original */
   text-shadow: -4px 0 0 var(--text-color-2);
 }
+
 
 .material__card-descricao p {
   max-width: 320px;

@@ -27,6 +27,70 @@
   border: none;
 }
 
+
+/* ==========================================
+   VIDEO — MINIATURA DE REPRODUÇÃO
+   ========================================== */
+
+.video__container {
+  position: relative;
+}
+
+/* Botão que ocupa todo o espaço do player */
+.video__poster {
+  position: absolute;
+  inset: 0;
+
+  display: grid;
+  place-items: center;
+
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+
+  background: #000;
+  cursor: pointer;
+}
+
+/* Miniatura ajustada ao formato 16:9 */
+.video__poster img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Botão central de reprodução */
+.video__play {
+  position: absolute;
+
+  display: grid;
+  place-items: center;
+
+  width: 68px;
+  height: 48px;
+
+  border-radius: 12px;
+
+  background: var(--primary-color-2);
+  color: #ffffff;
+
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+/* Interações */
+.video__poster:hover .video__play {
+  background: var(--primary-alter-dark-2);
+}
+
+.video__poster:focus-visible {
+  outline: 4px solid var(--primary-color-3);
+  outline-offset: -4px;
+}
+
+
 /* =========================
    BLOCO DE DESTAQUES
 ========================= */

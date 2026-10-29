@@ -1,6 +1,7 @@
 ---
 import FaqItem from "../../ui/FaqItem.astro";
 import SectionHeading from "../../ui/SectionHeading.astro";
+import WhatsAppButton from "../../ui/WhatsAppButton.astro";
 import "./FAQ.css";
 
 
@@ -13,17 +14,12 @@ const perguntas = [
   {
     question: "A partir de qual idade a criança pode começar?",
     answer:
-      "As turmas são organizadas conforme a idade e o nível do aluno. Entre em contato para verificarmos a melhor opção.",
+      "A partir dos sete anos, para isso recomendamos uma aula experimental.",
   },
   {
     question: "As aulas são presenciais?",
     answer:
       "Sim, as aulas acontecem presencialmente na escola Ilustrar, em Ibiúna/SP.",
-  },
-  {
-    question: "Preciso levar material?",
-    answer:
-      "A orientação sobre materiais pode variar conforme o curso escolhido. A escola informa tudo antes do início das aulas.",
   },
   {
     question: "Como faço para agendar uma aula?",
@@ -67,6 +63,16 @@ const perguntas = [
         ))
       }
     </div>
+
+    
+    <!-- Contato para dúvidas não respondidas no FAQ -->
+    <div class="contato-faq__actions">
+      <WhatsAppButton
+        text="TIRE SUAS DÚVIDAS"
+        message="Olá! Tenho uma dúvida sobre os cursos da ILUSTRAR."
+      />
+    </div>
+
 
   </div>
 

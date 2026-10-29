@@ -1,7 +1,10 @@
 ---
-import inclusao from "../../../assets/images/ribbon_autism.png";
+import inclusao from "../../../assets/images/inclusao/ribbon_autism.webp";
 import SectionHeading from "../../ui/SectionHeading.astro";
 import "./Video.css";
+// Identificador do vídeo oficial da ILUSTRAR.
+// Basta alterar aqui caso o vídeo seja substituído.
+const videoId = "iTPW5OEHLKY";
 ---
 
 <section id="escola" class="section video" aria-labelledby="video-title">
@@ -14,14 +17,28 @@ import "./Video.css";
   />
 
   <div class="video__area">
-    <div class="video__container">
-      <iframe
-        src="https://www.youtube.com/embed/iTPW5OEHLKY"
-        title="Vídeo de apresentação da escola Ilustrar"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
+    <!-- O player só será carregado após o clique. -->
+    <div class="video__container" data-youtube-player={videoId}>
+      <button
+        class="video__poster"
+        type="button"
+        aria-label="Reproduzir vídeo de apresentação da ILUSTRAR"
       >
-      </iframe>
+        <!-- Miniatura do vídeo, sem carregar o player -->
+        <img
+          src={`https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`}
+          alt=""
+          width="480"
+          height="360"
+          loading="lazy"
+          decoding="async"
+        />
+
+        <!-- Ícone de reprodução -->
+        <span class="video__play" aria-hidden="true">
+          ▶
+        </span>
+      </button>
     </div>
   </div>
 
@@ -86,3 +103,49 @@ import "./Video.css";
     </svg>
   </div>
 </section>
+
+
+<script>
+  /**
+   * PLAYER SOB DEMANDA — ILUSTRAR
+   *
+   * Carrega o iframe somente quando
+   * o visitante solicita a reprodução.
+   */
+  document.querySelectorAll("[data-youtube-player]")
+    .forEach((container) => {
+
+      const button = container.querySelector("button");
+      const videoId = container.getAttribute("data-youtube-player");
+
+      if (!button || !videoId) return;
+
+      button.addEventListener("click", () => {
+
+        // Cria o endereço do vídeo.
+        const url = new URL(
+          `https://www.youtube.com/embed/${videoId}`
+        );
+
+        url.searchParams.set("autoplay", "1");
+        url.searchParams.set("playsinline", "1");
+
+        // Cria o player somente após o clique.
+        const iframe = document.createElement("iframe");
+
+        iframe.src = url.toString();
+        iframe.title = "Vídeo de apresentação da ILUSTRAR";
+
+        iframe.allow =
+          "accelerometer; autoplay; encrypted-media; " +
+          "gyroscope; picture-in-picture; web-share";
+
+        iframe.allowFullscreen = true;
+        iframe.referrerPolicy =
+          "strict-origin-when-cross-origin";
+
+        // Substitui a miniatura pelo player.
+        container.replaceChildren(iframe);
+      });
+    });
+</script>

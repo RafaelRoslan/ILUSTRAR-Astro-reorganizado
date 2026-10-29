@@ -1,80 +1,121 @@
+/* ==========================================
+   ILUSTRAR — CARDS DOS PLANOS
+   Cores compartilhadas com os cursos.
+   ========================================== */
+
+/* Estrutura principal do card */
 .card-plano {
-  color: var(--text-color-2);
   width: min(100%, 350px);
-}
+  padding-bottom: 1rem;
 
-.card-plano.corLaranja .card-plano__destaque {
-  background-color: var(--secondary-alter-light-2);
-}
-
-.card-plano.corLaranja .card-plano__tipo {
-  background-color: var(--secondary-color-2);
-}
-
-.card-plano.corRosa .card-plano__destaque {
-  background-color: var(--primary-alter-light-3);
-}
-
-.card-plano.corRosa .card-plano__tipo {
-  background-color: var(--secondary-color-1);
-}
-
-.card-plano.corAzul .card-plano__destaque {
-  background-color: var(--primary-color-1);
-}
-
-.card-plano.corAzul .card-plano__tipo {
-  background-color: var(--primary-alter-dark-1);
-}
-
-.card-plano__destaque {
-  margin: 0.5rem;
-  border-radius: 12px;
+  border-radius: 18px;
   overflow: hidden;
+
+  background: var(--plano-fundo);
+  color: var(--plano-texto);
+
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
 }
 
+/* 1. Padrão — roxo */
+.card-plano.corPadrao {
+  --plano-fundo: var(--primary-color-2);
+  --plano-texto: var(--text-color-2);
+}
+
+/* 2. Intensivo — azul */
+.card-plano.corIntensivo {
+  --plano-fundo: var(--primary-color-1);
+  --plano-texto: var(--text-color-2);
+}
+
+/* 3. Artista — laranja */
+.card-plano.corArtista {
+  --plano-fundo: var(--secondary-color-2);
+  --plano-texto: var(--text-color-2);
+}
+
+/* Cabeçalho do plano */
 .card-plano__tipo {
-  padding: 0.8rem;
+  padding: 0.85rem;
+  background: rgba(255, 255, 255, 0.12);
 }
 
 .card-plano__tipo h3 {
   margin: 0;
   font-size: 1.5rem;
   text-align: center;
+  color: inherit;
 }
 
+/* Área do preço */
+.card-plano__oferta {
+  padding: 0.75rem 1rem 0.5rem;
+}
+
+/*
+ * Três colunas:
+ * 1 - R$ alinhado à direita
+ * 2 - Valor perfeitamente centralizado
+ * 3 - Espaço de equilíbrio
+ *
+ * O R$ não desloca o número do centro.
+ */
 .card-plano__valor {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr) auto minmax(0, 1fr);
+
+  align-items: baseline;
+  column-gap: 0.35rem;
+
+  width: 100%;
 }
 
-.card-plano p {
-  font-family: "SongerG";
-  text-align: center;
-}
-
+/* Cifrão menor, ao lado do valor */
 .card-plano__cifrao {
-  font-family: "SongerG";
-  font-size: 2.5rem;
-}
+  grid-column: 1;
+  justify-self: end;
 
-.card-plano__preco {
-  font-family: "SongerG";
-  font-size: clamp(4rem, 18vw, 5.75rem);
+  font-family: "SongerG", sans-serif;
+  font-size: clamp(1.25rem, 4vw, 1.75rem);
   line-height: 1;
-  text-shadow: -3px 0 0 var(--primary-color-2);
 }
 
+/* Número centralizado independentemente do R$ */
+.card-plano__preco {
+  grid-column: 2;
+  justify-self: center;
+
+  font-family: "SongerG", sans-serif;
+  font-size: clamp(3.5rem, 13vw, 5.5rem);
+  font-weight: 400;
+  line-height: 1;
+}
+
+/* Periodicidade */
 .card-plano__periodo {
-  margin: 0;
-  padding-bottom: 0.8rem;
-  font-size: 2rem;
+  margin: 0.4rem 0 0;
+
+  font-family: "SongerG", sans-serif;
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  line-height: 1.2;
+  text-align: center;
   text-transform: uppercase;
 }
 
+/* Descrição dos benefícios */
+.card-plano__descricao {
+  padding: 0.75rem 1rem 0;
+}
+
 .card-plano__descricao p {
-  color: var(--primary-color-2);
-  padding: 0.2rem;
+  margin: 0;
+  padding: 0.25rem 0;
+
+  font-family: "Rubik", sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  text-align: center;
+  color: inherit;
 }
